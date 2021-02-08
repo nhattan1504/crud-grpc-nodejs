@@ -20,10 +20,7 @@ server.addService(petsProto.PetService.service, {
         callback(null, pet)
     },
     delete: (call, callback) => {
-      let existingPetIndex = pets.findIndex( (pet) => {
-      	pet.id == call.request.id
-      })
-      
+      let existingPetIndex = pets.findIndex(pet => pet.id === call.request.id)
       if (existingPetIndex != -1) {
       	  // Xóa object pet khỏi mảng pet
           pets.splice(existingPetIndex, 1)
